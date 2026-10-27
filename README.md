@@ -18,6 +18,8 @@ npm run build
 npm run preview
 ```
 
+The production build uses relative asset paths, so the same `dist/` folder works on GitHub Pages. Pushes to `main` publish through `.github/workflows/pages.yml`.
+
 ## How to play
 
 | Action | Control |
