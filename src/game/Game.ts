@@ -530,7 +530,8 @@ export class Game {
     const climb = (this.keys.has("Space") || this.touch.up ? 1 : 0) - (this.keys.has("KeyC") || this.touch.down ? 1 : 0);
     return {
       throttleAxis: y,
-      steer: x,
+      // Chase camera shows world +X on the left, and positive yaw turns that way.
+      steer: -x,
       handbrake: !heli && !plane && (this.keys.has("Space") || this.touch.brake),
       boost: this.keys.has("ShiftLeft") || this.keys.has("ShiftRight") || this.touch.boost,
       pitch: heli ? y : pitch,
