@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Coral County</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%231a7f96' width='32' height='32' rx='6'/%3E%3Cpath d='M4 22h24l-4-6H14l-3 4H8z' fill='%23e4c48a'/%3E%3Ccircle cx='22' cy='12' r='3' fill='%23ffb703'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <canvas id="view" tabindex="0"></canvas>
+
+    <div id="hud">
+      <div id="brand">
+        <div id="logo">Coral County</div>
+        <div id="region">Beach</div>
+      </div>
+      <div id="prompt"></div>
+      <div id="toast"></div>
+      <div id="lap"></div>
+      <div id="cluster">
+        <div id="speed">
+          <span id="mph">0</span>
+          <span id="unit">mph</span>
+        </div>
+        <div id="veh-name">On foot</div>
+        <div id="boost" aria-hidden="true"><div id="boost-fill"></div></div>
+      </div>
+      <canvas id="mini" width="220" height="220"></canvas>
+      <div id="tickets"></div>
+      <div id="hint">F enter · M map · drag to look</div>
+      <button id="help-btn" type="button" aria-label="Controls">?</button>
+      <button id="mute-btn" type="button">Sound on</button>
+    </div>
+
+    <section id="title">
+      <div class="title-card">
+        <p class="eyebrow">Open county</p>
+        <h1>Coral County</h1>
+        <p class="lede">
+          A drivable coast split into beach, desert, city, and mountains. Traffic lights change, trains take the loop,
+          and the runway faces east.
+        </p>
+        <ul>
+          <li>Spawn is on Shell Beach, beside the blue Lumen iX.</li>
+          <li>Palm Circuit, Mesa Oval, and Ridge Loop are marked in red on the map.</li>
+          <li>Tide Line stops at the stations. The yellow Rail Bug is yours.</li>
+        </ul>
+        <button id="start" type="button">Start on the beach</button>
+        <p class="fine">WASD to move · F to drive, fly, or board · M for the map</p>
+      </div>
+    </section>
+
+    <section id="map" hidden>
+      <div class="sheet">
+        <header>
+          <h2>County map</h2>
+          <button id="map-close" type="button">Close</button>
+        </header>
+        <canvas id="map-canvas" width="720" height="720"></canvas>
+        <div id="map-keys"></div>
+        <p class="fine">Click the map to drop a beacon. Roads are white, rails are pale, tracks are coral.</p>
+      </div>
+    </section>
+
+    <section id="card" hidden>
+      <div class="sheet narrow">
+        <h2 id="card-title"></h2>
+        <p id="card-body"></p>
+        <button id="card-close" type="button">Close</button>
+      </div>
+    </section>
+
+    <section id="help" hidden>
+      <div class="sheet narrow">
+        <h2>How to get around</h2>
+        <dl>
+          <div><dt>On foot</dt><dd>WASD or arrows, mouse drag to look, Space to jump.</dd></div>
+          <div><dt>Cars</dt><dd>W throttle, S brake, A/D steer, Space handbrake, Shift boost, L headlights, H horn.</dd></div>
+          <div><dt>Planes</dt><dd>W/S throttle, A/D roll, arrow up nose up, arrow down nose down. Gull Trainer is lined up on runway 09.</dd></div>
+          <div><dt>Helicopters</dt><dd>W/S lean, A/D turn, Space climb, C descend. They hover when you let go.</dd></div>
+          <div><dt>Trains</dt><dd>F beside a stopped Tide Line coach to ride. F on the yellow Rail Bug to drive the inner loop.</dd></div>
+          <div><dt>Other</dt><dd>R resets your current ride. M opens the map. N mutes.</dd></div>
+        </dl>
+        <button id="help-close" type="button">Back to the county</button>
+      </div>
+    </section>
+
+    <div id="touch">
+      <div id="stick" aria-hidden="true"><div id="knob"></div></div>
+      <div id="touch-buttons">
+        <button type="button" data-hold="gas">Gas</button>
+        <button type="button" data-hold="brake">Brake</button>
+        <button type="button" data-tap="action">Enter</button>
+        <button type="button" data-hold="up">Up</button>
+        <button type="button" data-hold="down">Down</button>
+        <button type="button" data-hold="boost">Boost</button>
+        <button type="button" data-tap="map">Map</button>
+        <button type="button" data-tap="reset">Reset</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
